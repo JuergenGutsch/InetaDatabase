@@ -1,0 +1,89 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h1>Speaker:</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Firstname:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.FirstName}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Lastname:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.LastName}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Description:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.Description}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Phone:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.Phone}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Topics:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.Topics}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Twitter:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.Twitter}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Xing:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.Xing}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">ImagePath:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.ImagePath}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">IsActive:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{speaker.IsActive}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+        <a href="" class="btn btn-danger">
+            Delete speaker
+        </a>
+        <a class="btn btn-default" href="" [routerLink]="['EditSpeaker', {id: speaker.Id}]">
+            Edit speaker
+        </a>
+    </div>
+</div>
+
+

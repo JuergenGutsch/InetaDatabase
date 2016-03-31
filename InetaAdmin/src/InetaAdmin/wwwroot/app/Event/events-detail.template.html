@@ -1,0 +1,65 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h1>Speaker:</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">DateStart:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{event.DateStart}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Title:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{event.Title}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Description:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{event.Description}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">UsergroupId:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{event.UsergroupId}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">SpeakerId:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{event.SpeakerId}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Location:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{event.Location}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+        <a href="" class="btn btn-danger">
+            Delete event
+        </a>
+        <a class="btn btn-default" href="" [routerLink]="['EditEvent', {id: event.Id}]">
+            Edit event
+        </a>
+    </div>
+</div>
+
+

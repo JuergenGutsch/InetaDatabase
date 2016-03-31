@@ -1,0 +1,57 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h1>Newsletter:</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Subject:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{newsletter.Subject}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Title:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{newsletter.Title}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Description:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{newsletter.Description}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Recipients:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{newsletter.Recipients}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">SendDate:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{newsletter.SendDate}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+        <a href="" class="btn btn-danger">
+            Delete newsletter
+        </a>
+        <a class="btn btn-default" href="" [routerLink]="['EditNewsletter', {id: newsletter.Id}]">
+            Edit newsletter
+        </a>
+    </div>
+</div>
+
+

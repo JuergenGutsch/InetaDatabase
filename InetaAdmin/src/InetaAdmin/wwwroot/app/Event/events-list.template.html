@@ -1,0 +1,27 @@
+﻿<h1>All events</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['NewEvent']" class="btn btn-primary btn-xs pull-right">Add new event</a>
+            </li>
+            <li *ngFor="#event of events" class="list-group-item">
+                <a href="" [routerLink]="['Event', {id: event.Id}]">
+                    {{event.Title}}
+                </a>
+                <a href="" class="btn btn-danger btn-xs pull-right">
+                    Delete
+                </a>
+                <a href="" [routerLink]="['EditEvent', {id: event.Id}]" class="btn btn-primary btn-xs pull-right">
+                    Edit
+                </a>
+            </li>
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['NewEvent']" class="btn btn-primary btn-xs pull-right">Add new event</a>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿<div class="row">
+    <div class="col-sm-12">
+        <h1>User group:</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Name:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{usergroup.Name}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">Description:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{usergroup.Description}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">City:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{usergroup.City}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2">
+        <strong class="pull-right">IsActive:</strong>
+    </div>
+    <div class="col-sm-10">
+        {{usergroup.IsActive}}
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-10 col-sm-offset-2">
+        <a href="" class="btn btn-danger">
+            Delete user group
+        </a>
+        <a class="btn btn-default" href="" [routerLink]="['EditUsergroup', {id: usergroup.Id}]">
+            Edit user group
+        </a>
+    </div>
+</div>
+
+

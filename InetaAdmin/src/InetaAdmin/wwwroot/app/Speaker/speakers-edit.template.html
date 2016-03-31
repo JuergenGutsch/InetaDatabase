@@ -1,0 +1,64 @@
+﻿<h1>Edit speaker</h1>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="FirstName" class="col-sm-2 control-label">Firstname</label>
+        <div class="col-sm-10">
+            <input id="FirstName" class="form-control" [(ngModel)]="speaker.FirstName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="LastName" class="col-sm-2 control-label">LastName</label>
+        <div class="col-sm-10">
+            <input id="LastName" class="form-control" [(ngModel)]="speaker.LastName" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <input id="Description" class="form-control" [(ngModel)]="speaker.Description" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Phone" class="col-sm-2 control-label">Phone</label>
+        <div class="col-sm-10">
+            <input id="Phone" class="form-control" [(ngModel)]="speaker.Phone" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Topics" class="col-sm-2 control-label">Topics</label>
+        <div class="col-sm-10">
+            <input id="Topics" class="form-control" [(ngModel)]="speaker.Topics" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Twitter" class="col-sm-2 control-label">Twitter</label>
+        <div class="col-sm-10">
+            <input id="Twitter" class="form-control" [(ngModel)]="speaker.Twitter" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Xing" class="col-sm-2 control-label">Xing</label>
+        <div class="col-sm-10">
+            <input id="Xing" class="form-control" [(ngModel)]="speaker.Xing" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ImagePath" class="col-sm-2 control-label">ImagePath</label>
+        <div class="col-sm-10">
+            <input id="ImagePath" class="form-control" [(ngModel)]="speaker.ImagePath" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="IsActive" class="col-sm-2 control-label">IsActive</label>
+        <div class="col-sm-10">
+            <input id="IsActive" type="checkbox" [(ngModel)]="speaker.IsActive" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a class="btn btn-default" href="" [routerLink]="['Speaker', {id: speaker.Id}]">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>

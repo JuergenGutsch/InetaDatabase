@@ -1,0 +1,27 @@
+﻿<h1>All user groups</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['NewUsergroup']" class="btn btn-primary btn-xs pull-right">Add new user group</a>
+            </li>
+            <li *ngFor="#usergroup of usergroups" class="list-group-item">
+                <a href="" [routerLink]="['Usergroup', {id: usergroup.Id}]">
+                    {{usergroup.Name}}
+                </a>
+                <a href="" class="btn btn-danger btn-xs pull-right">
+                    Delete
+                </a>
+                <a href="" [routerLink]="['EditUsergroup', {id: usergroup.Id}]" class="btn btn-primary btn-xs pull-right">
+                    Edit
+                </a>
+            </li>
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['NewUsergroup']" class="btn btn-primary btn-xs pull-right">Add new user group</a>
+            </li>
+        </ul>
+    </div>
+</div>

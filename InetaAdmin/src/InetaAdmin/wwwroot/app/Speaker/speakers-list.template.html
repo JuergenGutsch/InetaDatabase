@@ -1,0 +1,27 @@
+﻿<h1>All speakers</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['NewSpeaker']" class="btn btn-primary btn-xs pull-right">Add new speaker</a>
+            </li>
+            <li *ngFor="#speaker of speakers" class="list-group-item">
+                <a href="" [routerLink]="['Speaker', {id: speaker.Id}]">
+                    {{speaker.FirstName}} {{speaker.LastName}}
+                </a>
+                <a href="" class="btn btn-danger btn-xs pull-right">
+                    Delete
+                </a>
+                <a href="" [routerLink]="['EditSpeaker', {id: speaker.Id}]" class="btn btn-primary btn-xs pull-right">
+                    Edit
+                </a>
+            </li>
+            <li class="list-group-item">
+                <span>&nbsp;</span>
+                <a href="" [routerLink]="['NewSpeaker']" class="btn btn-primary btn-xs pull-right">Add new speaker</a>
+            </li>
+        </ul>
+    </div>
+</div>

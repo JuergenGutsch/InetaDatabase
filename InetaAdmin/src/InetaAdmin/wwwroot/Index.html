@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <base href="/" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+
+
+    <my-app>Loading...</my-app>
+
+
+    <script src="lib/npmlibs/es6-shim/es6-shim.js"></script>
+    <script src="lib/npmlibs/es6-promise/es6-promise.js"></script>
+    <script src="lib/npmlibs/systemjs/system-polyfills.src.js"></script>
+    <script src="lib/npmlibs/angular2/angular2-polyfills.js"></script>
+    <script src="lib/npmlibs/systemjs/system.src.js"></script>
+    <script src="lib/npmlibs/rxjs/Rx.js"></script>
+    <script src="lib/npmlibs/angular2/angular2.js"></script>
+    <script src="lib/npmlibs/angular2/router.js"></script>
+    <script src="lib/npmlibs/angular2/http.js"></script>
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        System.config({
+            packages: {
+                'app': { defaultExtension: 'js' },
+                'lib': { defaultExtension: 'js' },
+            }
+        });
+
+        System.import('app/boot')
+            .then(null, console.error.bind(console));
+    </script>
+</body>
+</html>

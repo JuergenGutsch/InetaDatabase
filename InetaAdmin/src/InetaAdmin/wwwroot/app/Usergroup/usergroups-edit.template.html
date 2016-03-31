@@ -1,0 +1,34 @@
+﻿<h1>Edit user group</h1>
+
+<form class="form-horizontal">
+    <div class="form-group">
+        <label for="Name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input id="Name" class="form-control" [(ngModel)]="usergroup.Name" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="Description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <input id="Description" class="form-control" [(ngModel)]="usergroup.Description" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="City" class="col-sm-2 control-label">City</label>
+        <div class="col-sm-10">
+            <input id="City" class="form-control" [(ngModel)]="usergroup.City" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="IsActive" class="col-sm-2 control-label">IsActive</label>
+        <div class="col-sm-10">
+            <input id="IsActive" type="checkbox" [(ngModel)]="usergroup.IsActive" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <a class="btn btn-default" href="" [routerLink]="['Usergroup', {id: usergroup.Id}]">Cancel</a>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
