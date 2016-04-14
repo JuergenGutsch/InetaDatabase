@@ -24,6 +24,4 @@ import {NewsletterComponent} from './Newsletter/newsletters.component';
     { path: '/Events/...', name: 'Events', component: EventsComponent },
     { path: '/Newsletter/...', name: 'Newsletter', component: NewsletterComponent },
 ])
-export class AppComponent {
-
-}
+export class AppComponent {}

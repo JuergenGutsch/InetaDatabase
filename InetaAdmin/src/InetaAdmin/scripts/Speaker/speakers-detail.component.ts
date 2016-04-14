@@ -25,19 +25,7 @@ export class SpeakersDetailComponent implements OnInit {
         if (!this.speaker.Id) {
             let id = this._routeParams.get('id');
             this._speakerService.getSpeaker(id)
-                .subscribe((speaker: Speaker) => this._setSpeaker(speaker));
-        }
-    }
-    private _gotoSpeaker() {
-        let route = ['Speakers', { id: this.speaker ? this.speaker.Id : null }]
-        this._router.navigate(route);
-    }
-
-    private _setSpeaker(speaker: Speaker) {
-        if (speaker) {
-            this.speaker = speaker;
-        } else {
-            this._gotoSpeaker();
+                .subscribe((speaker: Speaker) => this.speaker = speaker);
         }
     }
 }

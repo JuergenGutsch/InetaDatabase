@@ -1,5 +1,5 @@
 ﻿import {Injectable, Component}     from 'angular2/core';
-import {Http, Response, HTTP_PROVIDERS} from 'angular2/http';
+import {Http, Response, HTTP_PROVIDERS, Headers, RequestOptions} from 'angular2/http';
 import {Observable}     from 'rxjs/Observable';
 
 import {Speaker} from './speaker';
@@ -23,8 +23,23 @@ export class SpeakerService {
     }
 
     getSpeaker(id: string) {
-        return this.getSpeakers()
-            .map(speakers => speakers.find(speaker => speaker.Id == id));
+        let data: Observable<Speaker> = this._http.get(this._speakersUrl + id)
+            .map(res => <Speaker>res.json())
+            .catch(this.handleError);
+
+        return data;
+    }
+
+    saveSpeaker(speaker: Speaker) {
+
+        let body = JSON.stringify(speaker);
+        console.info(body);
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        let temp = this._http.post(this._speakersUrl, body, options)
+            .map(res => console.info(res))
+            .catch(this.handleError);
     }
 
     private handleError(error: Response) {

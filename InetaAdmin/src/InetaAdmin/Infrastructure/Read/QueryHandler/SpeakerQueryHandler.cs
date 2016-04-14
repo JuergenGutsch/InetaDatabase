@@ -9,7 +9,7 @@ namespace InetaAdmin.Infrastructure.Read.QueryHandler
 {
     public class SpeakerQueryHandler :
         IHandleQueryAsync<AllSpeakersQuery, IEnumerable<Speaker>>,
-        IHandleQueryAsync<SingleSpeakerByIdQuery, Speaker>
+        IHandleQueryAsync<SpeakerByIdQuery, Speaker>
     {
         private readonly ITableClient _tableClient;
 
@@ -24,7 +24,7 @@ namespace InetaAdmin.Infrastructure.Read.QueryHandler
             return result;
         }
 
-        public async Task<Speaker> ExecuteAsync(SingleSpeakerByIdQuery query)
+        public async Task<Speaker> ExecuteAsync(SpeakerByIdQuery query)
         {
             var result = await _tableClient.GetItemOf<Speaker>(query.Id);
             return result;

@@ -12,7 +12,7 @@ namespace InetaAdmin.Infrastructure.Read
         public static IServiceCollection AddQueryHandlers(this IServiceCollection services)
         {
             services.AddTransient<IHandleQueryAsync<AllSpeakersQuery, IEnumerable<Speaker>>, SpeakerQueryHandler>();
-            services.AddTransient<IHandleQueryAsync<SingleSpeakerByIdQuery, Speaker>, SpeakerQueryHandler>();
+            services.AddTransient<IHandleQueryAsync<SpeakerByIdQuery, Speaker>, SpeakerQueryHandler>();
 
             services.AddTransient<IHandleQueryAsync<AllEventsQuery, IEnumerable<Event>>, EventQueryHandler>();
             services.AddTransient<IHandleQueryAsync<SingleEventByIdQuery, Event>, EventQueryHandler>();

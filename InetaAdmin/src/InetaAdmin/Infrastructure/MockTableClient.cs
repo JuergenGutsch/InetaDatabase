@@ -8,32 +8,32 @@ using InetaAdmin.Database.Entities;
 
 namespace InetaAdmin.Infrastructure
 {
-    public class MockTableClient : ITableClient
+public class MockTableClient : ITableClient
+{
+private readonly IDictionary<string, IEnumerable<IItem>> _db = new Dictionary<string, IEnumerable<IItem>>();
+
+public MockTableClient()
+{
+    _db.Add(nameof(Speaker), A.ListOf<Speaker>(50));
+    _db.Add(nameof(Usergroup), A.ListOf<Usergroup>(50));
+    _db.Add(nameof(Event), A.ListOf<Event>(50));
+    _db.Add(nameof(Newsletter), A.ListOf<Newsletter>(50));
+}
+
+public void SaveItemOf<T>(T item) where T : IItem, new()
+{
+    var items = _db[typeof(T).Name];
+
+    if (items.Any(x => x.Id.Equals(item.Id)))
     {
-        private readonly IDictionary<string, IEnumerable<IItem>> _db = new Dictionary<string, IEnumerable<IItem>>();
-
-        public MockTableClient()
-        {
-            _db.Add(nameof(Speaker), A.ListOf<Speaker>(50));
-            _db.Add(nameof(Usergroup), A.ListOf<Usergroup>(50));
-            _db.Add(nameof(Event), A.ListOf<Event>(50));
-            _db.Add(nameof(Newsletter), A.ListOf<Newsletter>(50));
-        }
-
-        public void SaveItemOf<T>(T item) where T : IItem, new()
-        {
-            var items = _db[typeof(T).Name];
-
-            if (items.Any(x => x.Id.Equals(item.Id)))
-            {
-                ((List<IItem>)items).RemoveAll(x => x.Id.Equals(item.Id));
-                ((List<IItem>)items).Add(item);
-            }
-            else
-            {
-                ((List<IItem>)items).Add(item);
-            }
-        }
+        ((List<IItem>)items).RemoveAll(x => x.Id.Equals(item.Id));
+        ((List<IItem>)items).Add(item);
+    }
+    else
+    {
+        ((List<IItem>)items).Add(item);
+    }
+}
 
         public void SaveAllItemsOf<T>(IEnumerable<T> items) where T : IItem, new()
         {
