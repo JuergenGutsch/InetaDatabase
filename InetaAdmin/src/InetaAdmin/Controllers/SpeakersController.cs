@@ -5,6 +5,7 @@ using Gos.Tools.Cqs.Command;
 using Gos.Tools.Cqs.Query;
 using InetaAdmin.Database.Entities;
 using InetaAdmin.Infrastructure.Read.Queries;
+using InetaAdmin.Infrastructure.Write.Commands;
 using Microsoft.AspNet.Mvc;
 
 namespace InetaAdmin.Controllers
@@ -47,14 +48,14 @@ namespace InetaAdmin.Controllers
         }
 
         [HttpPut("{id}")]
-        public async void Put(int id, [FromBody]Speaker value)
+        public async void Put(Guid id, [FromBody]Speaker value)
         {
             var command = new UpdateSpeakerCommand(id, value);
             await _commandDispatcher.DispatchCommandAsync(command);
         }
 
         [HttpDelete("{id}")]
-        public async void Delete(int id)
+        public async void Delete(Guid id)
         {
             var command = new DeleteSpeakerCommand(id);
             await _commandDispatcher.DispatchCommandAsync(command);

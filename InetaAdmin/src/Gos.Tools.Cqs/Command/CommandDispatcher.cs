@@ -25,8 +25,12 @@ namespace Gos.Tools.Cqs.Command
             stopwatch.Start();
 
             CheckAllPreconditions(command);
-            var handler = _serviceProvider.GetService<ICommandHandler<TCommand>>();
-            handler.Handle(command);
+
+            var handlers = _serviceProvider.GetServices<ICommandHandler<TCommand>>();
+            foreach (var handler in handlers)
+            {
+                handler.Handle(command);
+            }
 
             stopwatch.Stop();
             _logger.LogInformation("Execution time for command {0}: {1}", command, stopwatch.Elapsed.ToString("g"));
@@ -39,8 +43,12 @@ namespace Gos.Tools.Cqs.Command
             stopwatch.Start();
 
             CheckAllPreconditions(command);
-            var handler = _serviceProvider.GetService<IAsyncCommandHandler<TCommand>>();
-            await handler.HandleAsync(command).ConfigureAwait(false);
+
+            var handlers = _serviceProvider.GetServices<IAsyncCommandHandler<TCommand>>();
+            foreach (var handler in handlers)
+            {
+                await handler.HandleAsync(command).ConfigureAwait(false);
+            }
 
             stopwatch.Stop();
             _logger.LogInformation("Execution time for command {0}: {1}", command, stopwatch.Elapsed.ToString("g"));
