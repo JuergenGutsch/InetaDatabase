@@ -1,18 +1,24 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "Gos.Tools.Azure Class Library",
   "authors": [ "Juergen" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
 
   "dependencies": {
-    "WindowsAzure.Storage": "6.2.2-preview",
+    "WindowsAzure.Storage": "7.1.3-preview",
     "Newtonsoft.Json": "8.0.2",
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    },
+    "Microsoft.Extensions.DependencyInjection": "1.0.0"
   },
 
   "frameworks": {
-    "dnx451": { }
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net451+win8"
+      ]
+    }
   }
 }
