@@ -70,10 +70,12 @@ namespace Gos.Tools.Azure
             var itemType = typeof(T);
             var table = await CloudTable<T>(itemType);
 
-            var query = table.CreateQuery<GenericTableEntity>()
-                .Where(x => x.PartitionKey == itemType.Name && x.RowKey == id.ToString());
+            var query = new TableQuery<GenericTableEntity>()
+            {
+                 FilterString = $"PartitionKey eq '{itemType.Name}' and RowKey eq '{id.ToString()}'"
+            };
 
-            var entity = query.FirstOrDefault();
+            var entity = (await table.ExecuteQuerySegmentedAsync(query, new TableContinuationToken())).FirstOrDefault();
             if (entity != null)
             {
                 var item = JsonConvert.DeserializeObject<T>(entity.Item);
@@ -88,11 +90,14 @@ namespace Gos.Tools.Azure
             var itemType = typeof(T);
             var table = await CloudTable<T>(itemType);
 
-            var query = table.CreateQuery<GenericTableEntity>()
-                .Where(x => x.PartitionKey == itemType.Name);
+            var query = new TableQuery<GenericTableEntity>()
+            {
+                FilterString = $"PartitionKey eq '{itemType.Name}'"
+            };
+            var result = await table.ExecuteQuerySegmentedAsync(query, new TableContinuationToken());
 
             var items = new List<T>();
-            query.ForEach(entity =>
+            result.ForEach(entity =>
             {
                 var item = JsonConvert.DeserializeObject<T>(entity.Item);
                 items.Add(item);

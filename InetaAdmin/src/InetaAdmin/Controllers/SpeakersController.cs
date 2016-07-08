@@ -6,7 +6,7 @@ using Gos.Tools.Cqs.Query;
 using InetaAdmin.Database.Entities;
 using InetaAdmin.Infrastructure.Read.Queries;
 using InetaAdmin.Infrastructure.Write.Commands;
-using Microsoft.AspNet.Mvc;
+using Microsoft.AspNetCore.Mvc;
 
 namespace InetaAdmin.Controllers
 {

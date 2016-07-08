@@ -1,41 +1,64 @@
-﻿{
+{
   "version": "1.0.0-*",
-  "compilationOptions": {
-    "emitEntryPoint": true
-  },
 
-"dependencies": {
-  "Microsoft.AspNet.IISPlatformHandler": "1.0.0-rc1-final",
-  "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
-  "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
-  "Microsoft.AspNet.Mvc.TagHelpers": "6.0.0-rc1-final",
-  "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
-  "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
-  "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc1-final",
-  "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
-  "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
-  "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
-  "Microsoft.Extensions.Logging.Console": "1.0.0-rc1-final",
-  "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
-  "GenFu": "1.0.4",
-  "Gos.Tools.Cqs": "1.0.0-*",
-  "Gos.Tools.Azure": "1.0.0-*"
-},
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    },
+    "Microsoft.AspNetCore.Diagnostics": "1.0.0",
+    "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
+    "Microsoft.AspNetCore.Server.Kestrel": "1.0.0",
+    "Microsoft.Extensions.Logging.Console": "1.0.0",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0",
+    "Microsoft.ApplicationInsights.AspNetCore": "1.0.0",
+    "Microsoft.Extensions.DependencyInjection": "1.0.0",
+    "Microsoft.Extensions.Configuration": "1.0.0",
+    "Microsoft.AspNetCore.Mvc": "1.0.0",
+    "Microsoft.Extensions.Logging.Debug": "1.0.0",
+    "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
+    "Microsoft.AspNetCore.StaticFiles": "1.0.0",
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+    "Microsoft.Extensions.Logging": "1.0.0",
+    "Gos.Tools.Cqs": "1.0.0-*",
+    "Gos.Tools.Azure": "1.0.0-*",
+    "GenFu" :  "1.1.1"
+  },
 
   "commands": {
     "web": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {
-    "dnx451": { }
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "dnxcore50",
+        "portable-net45+win8"
+      ]
+    }
   },
 
-  "exclude": [
-    "wwwroot",
-    "node_modules"
-  ],
-  "publishExclude": [
-    "**.user",
-    "**.vspscc"
-  ]
+  "buildOptions": {
+    "emitEntryPoint": true,
+    "preserveCompilationContext": true
+  },
+
+  "runtimeOptions": {
+    "configProperties": {
+      "System.GC.Server": true
+    }
+  },
+
+  "publishOptions": {
+    "include": [
+      "wwwroot",
+      "web.config"
+    ]
+  },
+
+  "scripts": {
+    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+  }
 }
+

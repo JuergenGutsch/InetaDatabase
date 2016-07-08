@@ -1,16 +1,23 @@
-﻿{
+{
   "version": "1.0.0-*",
   "description": "Gos.Tools.Cqs Class Library",
   "authors": [ "Juergen" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
 
   "dependencies": {
-    "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+    "Microsoft.Extensions.DependencyInjection": "1.0.0",
+    "Microsoft.Extensions.Logging": "1.0.0",
+    "Microsoft.NETCore.App": {
+      "version": "1.0.0",
+      "type": "platform"
+    }
   },
 
   "frameworks": {
-    "dnx451": { }
+    "netcoreapp1.0": {
+      "imports": [
+        "dotnet5.6",
+        "portable-net45+win8"
+      ]
+    }
   }
 }

@@ -15,7 +15,7 @@ namespace Gos.Tools.Azure
                 throw new ArgumentNullException(nameof(storageCredentials));
             }
 
-            services.AddInstance<ITableClient>(new TableClient(storageCredentials));
+            services.AddSingleton<ITableClient>(new TableClient(storageCredentials));
 
             return services;
         }
